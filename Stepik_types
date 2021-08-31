@@ -22,8 +22,14 @@ a = float(input())
 b = int((a - int(a)) * 10)
 print(b)
 
+# Напишите программу, которая упорядочивает три числа от большего к меньшему.
 
-
+a, b, c = int(input()), int(input()), int(input())
+maximum = max(a, b, c)
+minimum = min(a, b, c)
+print(maximum)
+print(a + b + c - maximum - minimum)
+print(minimum)
 
 
 
