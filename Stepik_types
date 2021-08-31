@@ -31,6 +31,74 @@ print(maximum)
 print(a + b + c - maximum - minimum)
 print(minimum)
 
+# Назовем число интересным, если в нем разность максимальной и минимальной цифры равняется средней по величине цифре. Напишите программу, которая определяет интересное число или нет. Если число интересное, следует вывести – «Число интересное» иначе «Число неинтересное».
+
+a = int(input())
+a1 = a // 100
+a2 = (a % 100) // 10
+a3 = a % 10
+if max(a1, a2, a3) - min(a1, a2, a3) == a1 + a2 + a3 - max(a1, a2, a3) - min(a1, a2, a3):
+    print('Число интересное')
+else:
+    print('Число неинтересное')
+
+# На плоскости евклидово расстояние между двумя точками
+
+x1, y1, x2, y2 = float(input()), float(input()), float(input()), float(input())
+p = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+print(p)
+
+# Напишите программу определяющую площадь круга и длину окружности по заданному радиусу RR.
+
+import math
+r = float(input())
+s = math.pi * math.pow(r, 2)
+c = 2 * math.pi * r
+print(s, c, sep='\n')
+
+# Программа должна вывести 4 числа – среднее арифметическое, геометрическое, гармоническое и квадратичное.
+
+import math
+a, b = float(input()), float(input())
+print((a + b) / 2)
+print(math.sqrt(a * b))
+print((2 * a * b) / (a + b))
+print(math.sqrt((math.pow(a, 2) + math.pow(b, 2)) / 2))
+
+# Напишите программу, вычисляющую значение ⌈x⌉ +⌊x⌋ по заданному вещественному числу x.
+
+from math import floor, ceil
+x = float(input())
+print(floor(x) + ceil(x))
+
+# Даны три вещественных числа aa, bb, cc. Напишите программу, которая находит вещественные корни квадратного уравнения 
+
+from math import sqrt
+a, b, c = float(input()), float(input()), float(input())
+d = b ** 2 - 4 * a * c
+if d > 0:
+    x1 = (-b - sqrt(d)) / (2 * a)
+    x2 = (-b + sqrt(d)) / (2 * a)
+    print(min(x1, x2), max(x1, x2), sep='\n')
+elif d == 0:
+    x = -b / (2 * a)
+    print(x)
+else:
+    print('Нет корней')
+
+# Даны два числа: натуральное число nn и вещественное число aa. Напишите программу, которая находит площадь указанного правильного многоугольника.
+
+from math import pi, tan
+n, a = int(input()), float(input())
+s = (n * a ** 2) / (4 * tan(pi / n))
+print(s)
+
+
+
+
+
+
+
 
 
 
