@@ -136,7 +136,35 @@ for i in range(n):
         second = a
 print(first, second, sep='\n')
 
+# Напишите программу, которая считывает последовательность из 10 целых чисел и определяет является ли каждое из них четным или нет.
 
+answer = 'YES'
+for i in range(10):
+    a = int(input())
+    if a % 2 != 0:
+        answer = 'NO'
+print(answer)  
+
+# Напишите программу, которая считывает натуральное число nn и выводит первые nn чисел последовательности Фибоначчи.
+
+n = int(input())
+a = 0
+b = 1
+c = 1
+for i in range(n):
+    print(c, end=' ')  
+    c = a + b
+    a = b
+    b = c
+    
+or
+
+n = int(input())
+a = 0
+b = 1
+for i in range(n):
+    print(a, end=' ')  
+    a, b = b, a + b
 
 
 
