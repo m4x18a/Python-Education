@@ -129,7 +129,33 @@ while n > 9:
     n //= 10
 print(last_digit)
 
+# Дано натуральное число. Напишите программу, которая определяет, состоит ли указанное число из одинаковых цифр.
 
+n = int(input())
+flag = True
+for_check = n % 10
+while n != 0:
+    last_digit = n % 10
+    if last_digit != for_check:
+        flag = False
+    n //= 10
+if flag == True:
+    print('YES')
+else:
+    print('NO')
+
+# Дано натуральное число. Напишите программу, которая определяет, является ли последовательность его цифр при просмотре справа налево упорядоченной по неубыванию.
+
+n = int(input())
+m = n % 10
+answer = 'YES'
+while n != 0:
+    last_digit = n % 10
+    if last_digit < m:
+        answer = 'NO'
+    m = last_digit
+    n //= 10
+print(answer)
 
 
 
