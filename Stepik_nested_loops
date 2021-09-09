@@ -103,8 +103,23 @@ print(x, sum_x)
 n = int(input())
 for i in range(1, n + 1):
     count = 0
-    for k in range(1, i + 1):
+    for k in range(1, i + 1):На вход программе подается два натуральных числа aa и bb (a < ba< b). Напишите программу, которая находит все простые числа от aa до bb включительно.
         if i % k == 0:
             count += 1
     print(i, '+' * count, sep='')
+
+# На вход программе подается два натуральных числа a и b (a < b). Напишите программу, которая находит все простые числа от a до b включительно.
+
+a, b = int(input()), int(input())
+flag = True
+for i in range(a, b + 1):
+    for k in range(2, i):
+        if i % k == 0:
+            flag = False
+            break
+    if flag == True and i != 1:
+        print(i)
+    flag = True
+
+
 
