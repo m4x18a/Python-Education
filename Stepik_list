@@ -64,11 +64,43 @@ for c in l:
     if s.lower() in c.lower():
         print(c)
 
-# 
+# На вход программе подается натуральное число n, затем n строк, затем число k — количество поисковых запросов, затем k строк — поисковые запросы. Напишите программу, которая выводит все введенные строки, в которых встречаются все поисковые запросы.
 
+n = int(input())
+n_list = []
+q_list = []
+a_list = []
+for _ in range(n):
+    n_list.append(input())
+q = int(input())
+for _ in range(q):
+    q_list.append(input())
+for f in n_list:
+    count = 0
+    for s in q_list:
+        if s.lower() in f.lower():
+            count += 1
+    if count == len(q_list):
+        a_list.append(f)
+print(*a_list, sep='\n')
 
+# На вход программе подается натуральное число n, а затем n целых чисел. Напишите программу, которая сначала выводит все отрицательные числа, затем нули, а затем все положительные числа, каждое на отдельной строке. Числа должны быть выведены в том же порядке, в котором они были введены.
 
-
+n = int(input())
+n_list = []
+z_list = []
+p_list = []
+for _ in range(n):
+    x = int(input())
+    if x < 0:
+        n_list.append(x)
+    elif x == 0:
+        z_list.append(x)
+    else:
+        p_list.append(x)
+print(*n_list, sep='\n')
+print(*z_list, sep='\n')
+print(*p_list, sep='\n')
 
 
 
