@@ -99,15 +99,97 @@ txt1 = input()
 txt2 = input()
 print(is_one_away(txt1, txt2))
 
+# Напишите функцию is_palindrome(text), которая принимает в качестве аргумента строку text и возвращает значение True если указанный текст является палиндромом и False в противном случае.
+
+def is_palindrome(text):
+    text = text.lower()
+    a = []
+    b = []
+    for c in text:
+        if c in 'abcdefghyjklmnopqrstuvwxyz' or c in 'абвгдеёжзиклмнопрстуфхцчшщъыьэюя':
+            a.append(c)
+    b = a[::-1]
+    if a == b:
+        return True
+    else:
+        return False
 
 
+txt = input()
+
+print(is_palindrome(txt))
+
+"""Действительный пароль BEEGEEK банка имеет вид a:b:c, где a, b и c – натуральные числа. Поскольку основатель BEEGEEK фанатеет от математики, то он решил:
+число a – должно быть палиндромом;
+число b – должно быть простым;
+число c – должно быть четным.
+Напишите функцию is_valid_password(password), которая принимает в качестве аргумента строковое значение пароля password 
+и возвращает значение True если пароль является действительным паролем BEEGEEK банка и False в противном случае."""
+
+def is_valid_password(password):
+    list_a = []
+    count = 0
+    abc = password.split(':')
+    if len(abc) != 3:
+        return False
+    a = abc[0]
+    b = int(abc[1])
+    c = int(abc[2])
+    if a != a[::-1]:
+        return False
+    for i in range(1, b + 1):
+        if b % i == 0:
+            count += 1
+        if count > 2:
+            return False   
+    if c % 2 != 0:
+        return False
+    return True
+        
+
+psw = input()
+
+print(is_valid_password(psw))
+
+"""Напишите функцию is_correct_bracket(text), которая принимает в качестве аргумента непустую строку text, 
+состоящую из символов ( и ) и возвращает значение True если поступившая на вход строка является правильной скобочной последовательностью и False в противном случае."""
+
+def is_correct_bracket(text):
+    count = 0
+    for c in text:
+        if c not in '()':
+            return False
+        if c == '(':
+            count += 1
+        elif c == ')':
+            count -= 1
+        if count < 0:
+            return False
+    if count > 0:
+        return False
+    return True
+
+txt = input()
+
+print(is_correct_bracket(txt))
+
+# Напишите функцию convert_to_python_case(text), которая принимает в качестве аргумента строку в «верблюжьем регистре» и преобразует его в «змеиный регистр».
+
+def convert_to_python_case(text):
+    a = []
+    a.append(text[0].lower())
+    text = text[1:]
+    for c in text:
+        if c.isupper() is True:
+            a.append('_' + c.lower())
+        else:
+            a.append(c)
+    return a
 
 
+txt = input()
 
-
-
-
-
+print(*convert_to_python_case(txt), sep='')
 
 
 
