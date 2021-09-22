@@ -1,0 +1,11 @@
+# Напишите программу, которая сначала считывает элементы матрицы один за другим, затем выводит их в виде матрицы.
+
+n, m = int(input()), int(input())
+arr = [[0] * m for c in range(n)]
+for i in range(n):
+    for j in range(m):
+        arr[i][j] = input()
+for i in range(n):
+    for j in range(m):
+        print(arr[i][j], end=' ')
+    print()    
