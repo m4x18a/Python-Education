@@ -102,11 +102,75 @@ for i in range(n):
         print(arr[i][j], end=' ')
     print()
     
-# 
+# Напишите программу для вычисления суммы двух матриц.
 
+size = [int(num) for num in input().split()]
+arr1 = []
+arr2 = []
+arr_result = []
+for i in range(size[0]):
+    temp = [int(num) for num in input().split()]
+    arr1.append(temp)
+input()
+for i in range(size[0]):
+    temp = [int(num) for num in input().split()]
+    arr2.append(temp)
+for i in range(size[0]):
+    temp = []
+    for j in range(size[1]):
+        temp.append(arr1[i][j] + arr2[i][j])
+    arr_result.append(temp)
+for i in range(size[0]):
+    for j in range(size[1]):
+        print(arr_result[i][j], end=' ')
+    print()
 
+# Напишите программу, которая перемножает две матрицы.
 
+import numpy as np
+arr1 = []
+arr2 = []
+arr_mult = []
 
+size1 = [int(num) for num in input().split()]
+for i in range(size1[0]):
+    temp = [int(num) for num in input().split()]
+    arr1.append(temp)
+    
+input()
+
+size2 = [int(num) for num in input().split()]
+for i in range(size2[0]):
+    temp = [int(num) for num in input().split()]
+    arr2.append(temp)
+    
+
+matrix1 = np.array(arr1)
+matrix2 = np.array(arr2)
+total = matrix1.dot(matrix2)
+    
+for i in range(size1[0]):
+    for j in range(size2[1]):
+        print(total[i][j], end=' ')
+    print()
+
+# Напишите программу, которая возводит квадратную матрицу в m-ую степень.
+
+import numpy as np
+n = int(input())
+arr = []
+for i in range(n):
+    temp = [int(num) for num in input().split()]
+    arr.append(temp)
+m = int(input())
+
+arr = np.array(arr)
+result = np.linalg.matrix_power(arr, m)
+
+for i in range(n):
+    for j in range(n):
+        print(result[i][j], end=' ')
+    print()
 
 
 
