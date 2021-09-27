@@ -26,6 +26,15 @@ print(one)
 print(two)
 print(noone)
 
+# На вход программе подается строка, состоящая из трех слов. Верно ли, что для записи всех трех слов был использован один и тот же набор букв?
 
+n = input().split()
+flag = 'YES'
+myset = set(n[0])
+for i in range(1, len(n)):
+    if myset != set(n[i]):
+        flag = 'NO'
+        break
+print(flag)
 
 
