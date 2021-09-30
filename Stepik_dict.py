@@ -48,9 +48,34 @@ for i in range(len(users)):
 mylist = sorted(mylist)
 print(*mylist)
 
-#Напишите программу, которая будет превращать натуральное число в строку, заменяя все цифры в числе на слова:
+# Напишите программу, которая будет превращать натуральное число в строку, заменяя все цифры в числе на слова:
 
 mydict = {'1': 'one', '2': 'two', '3': 'three', '4': 'four', '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine', '0': 'zero'}
 n = input()
 for c in n:
     print(mydict[c], end=' ')
+
+# Напишите программу для кодирования текстового сообщения в соответствии с кодом Морзе.
+
+letters = [c for c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ']
+morse = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..', '-----', '.----', '..---', '...--', '....-', '.....', '-....', '--...', '---..', '----.', '']
+n = input()
+morse_dict = dict(zip(letters, morse))
+for c in n:
+    if c.isalnum():
+        print(morse_dict[c.upper()], end=' ')
+
+# Дополните приведенный код, чтобы он вывел наиболее часто встречающееся слово строки s. Если таких слов несколько, должно быть выведено то, что меньше в лексикографическом порядке.
+
+s = 'orange strawberry barley gooseberry apple apricot barley currant orange melon pomegranate banana banana orange barley apricot plum grapefruit banana quince strawberry barley grapefruit banana grapes melon strawberry apricot currant currant gooseberry raspberry apricot currant orange lime quince grapefruit barley banana melon pomegranate barley banana orange barley apricot plum banana quince lime grapefruit strawberry gooseberry apple barley apricot currant orange melon pomegranate banana banana orange apricot barley plum banana grapefruit banana quince currant orange melon pomegranate barley plum banana quince barley lime grapefruit pomegranate barley'
+mylist = s.split()
+mylist1 = []
+mydict = {}
+for word in mylist:
+    mydict[word] = mydict.get(word, 0) + 1
+maxx = max(mydict.values())
+for key, value in mydict.items():
+    if value == maxx:
+        mylist1.append(key)
+mylist1.sort()
+print(mylist1[0])
