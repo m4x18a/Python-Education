@@ -104,3 +104,19 @@ result = {}
 for set_1 in pets:
     result.setdefault((set_1[1:]), []).append(set_1[0])
 print(result)
+
+# Напишите программу создания небольшого словаря сленговых программерских выражений, чтобы она потом по запросу возвращала значения из этого словаря.
+
+n = int(input())
+dictionary = {}
+for i in range(n):
+    c = input().split(':')
+    dictionary[c[0].lower()] = c[1].lstrip()
+m = int(input())
+for k in range(m):
+    print(dictionary.get(input().lower(), 'Не найдено'))
+
+# Используя генератор, дополните приведенный код, чтобы получить словарь result, где ключом будет элемент списка numbers, а значением – отсортированный по возрастанию список всех его делителей начиная с 1.
+
+numbers = [34, 10, 4, 6, 10, 23, 90, 100, 21, 35, 95, 1, 36, 38, 19, 1, 6, 87, 1000, 13456, 360]
+result = {i: sorted([int(i / k) for k in range(1, i + 1) if i % k == 0]) for i in numbers}
