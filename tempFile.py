@@ -1,7 +1,11 @@
 import random
-a = []
-b = []
-while len(b) != 7:
-    a.append(random.randint(1, 49))
-    b = set(a)
-print(*sorted(b))
+
+n = 10**6       # количество испытаний
+k = 0
+s0 = 16
+for _ in range(n):
+    x = random.randint(-2, 2)
+    y = random.randint(-2, 2)
+    if x**3 + y**4 + 2 >= 0 and 3*x + y**2 <= 2:
+        k += 1
+print((k/n)*s0)
