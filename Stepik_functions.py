@@ -236,9 +236,25 @@ def matrix(n=1, m=0, value=0):
         m = n
     return [[value for i in range(m)] for i in range(n)]
 
-print(matrix(3, 1))
+# Напишите функцию mean(), которая принимает произвольное количество аргументов и возвращает среднее арифметическое переданных в нее числовых (int или float) аргументов.
 
+def mean(*args):
+    quantity = 0
+    total = 0
+    for c in args:
+        if type(c)==int or type(c) == float:
+            quantity += 1
+            total += c
+    return total / quantity
 
+# Напишите функцию print_products(), которая принимает произвольное количество аргументов и выводит список продуктов. Если среди переданных аргументов нет ни одного продукта, необходимо вывести текст Нет продуктов.
+
+def print_products(*args):
+    count = 1
+    for c in args:
+        if type(c) == str and len(c) > 0:
+            print(count, ') ', c, sep='')
+            count += 1
 
 
 

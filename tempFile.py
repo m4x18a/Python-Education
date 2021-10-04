@@ -1,6 +1,8 @@
-def matrix(n=1, m=0, value=0):
-    if m == 0:
-        m = n
-    return [[value for i in range(m)] for i in range(n)]
+def print_products(*args):
+    count = 1
+    for c in args:
+        if type(c) == str and len(c) > 0:
+            print(count, ') ', c, sep='')
+            count += 1
 
-print(matrix(3, 1))
+print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
