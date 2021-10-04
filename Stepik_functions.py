@@ -226,7 +226,17 @@ n = int(input())
 
 print(number_to_words(n))
 
+"""print(matrix())                   # матрица 1 × 1 из 0
+   print(matrix(3))                  # матрица 3 × 3 из 0
+   print(matrix(2, 5))               # матрица 2 × 5 из 0
+   print(matrix(3, 4, 9))            # матрица 3 × 4 из 9"""
 
+def matrix(n=1, m=0, value=0):
+    if m == 0:
+        m = n
+    return [[value for i in range(m)] for i in range(n)]
+
+print(matrix(3, 1))
 
 
 
