@@ -508,7 +508,22 @@ mixed_list = ['beside', 48, 'accelerate', 28, 'beware', 'absorb', 'besides', 'be
 mylist = sorted(mixed_list, key=lambda word: (0 if isinstance(word, int) else 1, word))
 print(*mylist)
 
+"""На вход программе на первой строке подаются коэффициенты многочлена, разделенные символом пробела
+ и целое число x на второй строке. Напишите программу, которая вычисляет значение указанного многочлена 
+ при заданном значении x."""
 
+from functools import reduce
+
+def evaluate(coefficients, x):
+    list1 = [x**i for i in range(len(coefficients) - 1, -1, -1)]
+    list2 = list(map(lambda c, l1: c*l1, coefficients, list1))
+    return reduce(lambda num1, num2: num1 + num2, list2, 0)
+
+
+coefficient = [int(c) for c in input().split()]
+x = int(input())
+
+print(evaluate(coefficient, x))
 
 
 
