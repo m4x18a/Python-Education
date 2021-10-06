@@ -1,14 +1,9 @@
-from functools import reduce 
-
-floats = [4.35, 6.09, 3.25, 9.77, 2.16, 8.88, 4.59, 34.23, 12.12, 4.67, 2.45, 9.32]
-words = ['racecar', 'akinremi', 'deed', 'temidayo', 'omoseun', 'civic', 'TATTARRATTAT', 'malayalam', 'nun']
-numbers = [4, 6, 9, 23, 5]
-
-# Исправьте этот код
-map_result = list(map(lambda num: round(num**2, 1), floats))
-filter_result = list(filter(lambda name: name if name == name[::-1] and len(name) > 4 else False, words))
-reduce_result = reduce(lambda num1, num2: num1 * num2, numbers, 1)
-
-print(map_result)
-print(filter_result)
-print(reduce_result)
+mixed_list = ['beside', 48, 'accelerate', 28, 'beware', 'absorb', 'besides', 'berry', 15, 65, 'abate', 'thursday',
+              76, 70, 94, 35, 36, 'berth', 41, 'abnormal', 'bicycle', 'bid', 'sunday', 'saturday', 87, 'bigot', 41,
+              'abort', 13, 60, 'friday', 26, 13, 'accident', 'access', 40, 26, 20, 75, 13, 40, 67, 12, 'abuse', 78,
+              10, 80, 'accessory', 20, 'bewilder', 'benevolent', 'bet', 64, 38, 65, 51, 95, 'abduct', 37, 98, 99, 14,
+              'abandon', 'accept', 46, 'abide', 'beyond', 19, 'about', 76, 26, 'abound', 12, 95, 'wednesday',
+              'abundant', 'abrupt', 'aboard', 50, 89, 'tuesday', 66, 'bestow', 'absent', 76, 46, 'betray', 47, 'able',
+              11]
+mylist = sorted(mixed_list, key=lambda word: (0 if isinstance(word, int) else 1, word))
+print(*mylist)

@@ -469,12 +469,44 @@ print(map_result)
 print(filter_result)
 print(reduce_result)
 
+"""Напишите программу, которая с помощью встроенных функций filter() и sorted() выводит слова из списка words, 
+имеющие длину ровно 666 символов. Слова следует вывести в алфавитном порядке на одной строке, 
+разделив символом пробела."""
 
+words = ['beverage', 'monday', 'abroad', 'bias', 'abuse', 'abolish', 'abuse', 'abuse', 'bid', 'wednesday', 'able',
+         'betray', 'accident', 'abduct', 'bigot', 'bet', 'abandon', 'besides', 'access', 'friday', 'bestow', 'abound',
+         'absent', 'beware', 'abundant', 'abnormal', 'aboard', 'about', 'accelerate', 'abort', 'thursday', 'tuesday',
+         'sunday', 'berth', 'beyond', 'benevolent', 'abate', 'abide', 'bicycle', 'beside', 'accept', 'berry',
+         'bewilder', 'abrupt', 'saturday', 'accessory', 'absorb']
+mylist = sorted(list(filter(lambda w: len(w) == 6, words)))
+print(*mylist)
 
+"""Список data содержит информацию о численности населения некоторых штатов США. Напишите программу сортировки 
+по убыванию списка data на основании последнего символа в названии штата. Затем распечатайте элементы этого списка, 
+каждый на новой строке в формате: <название штата>: <численность населения>"""
 
+data = [(19542209, 'New York'), (4887871, 'Alabama'), (1420491, 'Hawaii'), (626299, 'Vermont'),
+        (1805832, 'West Virginia'), (39865590, 'California'), (11799448, 'Ohio'), (10711908, 'Georgia'),
+        (10077331, 'Michigan'), (10439388, 'Virginia'), (7705281, 'Washington'), (7151502, 'Arizona'),
+        (7029917, 'Massachusetts'), (6910840, 'Tennessee')]
+mylist = sorted(data, key=lambda tuple1: tuple1[1][-1], reverse=True)
+for tuple in mylist:
+    list(tuple)
+    print(tuple[1] + ': ' + str(tuple[0]))
 
+"""Список mixed_list содержит целочисленные и строковые значения. 
+Напишите программу его сортировки по неубыванию значений элементов, при этом числа должны следовать до строк.
+Элементы отсортированного списка выведите на одной строке, разделив символом пробела."""
 
-
+mixed_list = ['beside', 48, 'accelerate', 28, 'beware', 'absorb', 'besides', 'berry', 15, 65, 'abate', 'thursday',
+              76, 70, 94, 35, 36, 'berth', 41, 'abnormal', 'bicycle', 'bid', 'sunday', 'saturday', 87, 'bigot', 41,
+              'abort', 13, 60, 'friday', 26, 13, 'accident', 'access', 40, 26, 20, 75, 13, 40, 67, 12, 'abuse', 78,
+              10, 80, 'accessory', 20, 'bewilder', 'benevolent', 'bet', 64, 38, 65, 51, 95, 'abduct', 37, 98, 99, 14,
+              'abandon', 'accept', 46, 'abide', 'beyond', 19, 'about', 76, 26, 'abound', 12, 95, 'wednesday',
+              'abundant', 'abrupt', 'aboard', 50, 89, 'tuesday', 66, 'bestow', 'absent', 76, 46, 'betray', 47, 'able',
+              11]
+mylist = sorted(mixed_list, key=lambda word: (0 if isinstance(word, int) else 1, word))
+print(*mylist)
 
 
 
