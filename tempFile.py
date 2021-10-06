@@ -1,17 +1,14 @@
-def func_apply(function, items):
-    result = []
-    for item in items:
-        result.append(function(item))
-    return result
+from functools import reduce 
 
-def add3(x):
-    return x + 3
+floats = [4.35, 6.09, 3.25, 9.77, 2.16, 8.88, 4.59, 34.23, 12.12, 4.67, 2.45, 9.32]
+words = ['racecar', 'akinremi', 'deed', 'temidayo', 'omoseun', 'civic', 'TATTARRATTAT', 'malayalam', 'nun']
+numbers = [4, 6, 9, 23, 5]
 
+# Исправьте этот код
+map_result = list(map(lambda num: round(num**2, 1), floats))
+filter_result = list(filter(lambda name: name if name == name[::-1] and len(name) > 4 else False, words))
+reduce_result = reduce(lambda num1, num2: num1 * num2, numbers, 1)
 
-def mul7(x):
-    return x * 7
-
-
-print(func_apply(mul7, [1, 2, 3, 4, 5, 6]))
-print(func_apply(add3, [1, 2, 3, 4, 5, 6]))
-print(func_apply(str, [1, 2, 3, 4, 5, 6]))
+print(map_result)
+print(filter_result)
+print(reduce_result)
