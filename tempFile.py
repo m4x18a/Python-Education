@@ -1,16 +1,10 @@
-from functools import reduce
-
-def evaluate(coefficients, x):
-    list1 = [x**i for i in range(len(coefficients) - 1, -1, -1)]
-    list2 = list(map(lambda c, l1: c*l1, coefficients, list1))
-    return reduce(lambda num1, num2: num1 + num2, list2, 0)
+def ignore_command(command):
+    ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+    return any(list(map(lambda w: True if w in command else False, ignore)))
 
 
-coefficient = [int(c) for c in input().split()]
-x = int(input())
-
-print(evaluate(coefficient, x))
-
-
-
+print(ignore_command('get ip'))
+print(ignore_command('select all'))
+print(ignore_command('delete'))
+print(ignore_command('trancate'))
 
