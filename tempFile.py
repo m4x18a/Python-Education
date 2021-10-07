@@ -1,10 +1,4 @@
-def ignore_command(command):
-    ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
-    return any(list(map(lambda w: True if w in command else False, ignore)))
-
-
-print(ignore_command('get ip'))
-print(ignore_command('select all'))
-print(ignore_command('delete'))
-print(ignore_command('trancate'))
-
+n = int(input())
+list1 = [[input().split()[1] for _ in range(int(input()))] for _ in range(n)]
+list2 = list(map(lambda l: '5' in l, list1))
+print('YES' if all(list2) else 'NO')

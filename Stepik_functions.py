@@ -537,10 +537,67 @@ print(ignore_command('select all'))
 print(ignore_command('delete'))
 print(ignore_command('trancate'))
 
+"""На вход программе подаются три строки текста с вещественными числами, значениями абсцисс (x), ординат (y) 
+и аппликат (z) точек трехмерной плоскости. Напишите программу для проверки расположения всех точек с введенными 
+координатами внутри либо на поверхности шара с центром в начале координат и радиусом R=2."""
 
+abscissas = [float(n) for n in input().split()]
+ordinates = [float(n) for n in input().split()]
+applicates = [float(n) for n in input().split()]
+points = zip(abscissas, ordinates, applicates)
+ans = []
+for t in points:
+    if t[0]**2 + t[1]**2 + t[2]**2 <= 4:
+        ans.append(True)
+    else:
+        ans.append(False)
+print(all(ans))
 
+"""Напишите программу с использованием встроенной функции all() для проверки корректности IP-адреса: 
+все ли октеты в IP-адресе – числа со значением от 000 до 255."""
 
+ans = [True if n.isdigit() and 0 <= int(n) <= 255 else False for n in input().split('.')]
+print(all(ans))
 
+"""На вход программе подаются два натуральных числа a и b. Напишите программу для обнаружения всех чисел в диапазоне 
+[a;b], которые делятся на каждую содержащуюся в них цифру без остатка."""
+
+def is_interest(num):
+    chars = [int(i) for i in str(num)]
+    for i in chars:
+        if num % i != 0:
+            return False
+    return True
+
+a, b = int(input()), int(input())
+numbers = [i for i in range(a, b + 1) if '0' not in str(i)]
+list1 = list(filter(is_interest, numbers))
+print(*list1)
+
+"""Хороший пароль по условиям этой задачи состоит как минимум из 7 символов, содержит хотя бы одну цифру, 
+заглавную и строчную букву. Напишите программу со встроенной функцией any() для определения 
+хорош ли введенный пароль."""
+
+password = input()
+up = list(map(lambda s: s.isupper(), list(password)))
+lo = list(map(lambda s: s.islower(), list(password)))
+di = list(map(lambda s: s.isdigit(), list(password)))
+seven = [True if len(password) >= 7 else False]
+parameters = [up, lo, di, seven]
+a = [any(list1) for list1 in parameters]
+if all(a) == True:
+    print('YES')
+else:
+    print('NO')
+
+"""Учитель Тимур проверял контрольные работы по математике в нескольких классах онлайн-школы BEEGEEK и решил убедиться,
+что в каждом классе есть хотя бы один отличник – ученик с оценкой 5 по контрольной работе. 
+Напишите программу для помощи Тимуру в проверке."""
+
+n = int(input())
+list1 = [[input().split()[1] for _ in range(int(input()))] for _ in range(n)]
+list2 = list(map(lambda l: '5' in l, list1))
+print('YES' if all(list2) else 'NO')
 
 
 
